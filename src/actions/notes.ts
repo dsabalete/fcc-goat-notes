@@ -75,7 +75,7 @@ export const askAIAboutNotesAction = async (newQuestions: string[], responses: s
   });
 
   if (notes.length === 0) {
-    return "You don't have any notes yet. Create a note to get started.";
+    return "You don't have any notes yet.";
   }
 
   const formattedNotes = notes.map((note) => {
