@@ -11,7 +11,7 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { Button } from "./ui/button";
-import { Loader2, Trash2Icon } from "lucide-react";
+import { Loader2, Trash2 } from "lucide-react";
 import { useTransition } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { deleteNoteAction } from "@/actions/notes";
@@ -23,7 +23,6 @@ type Props = {
 
 function DeleteNoteButton({ noteId, deleteNoteLocally }: Props) {
   const router = useRouter();
-
   const noteIdParam = useSearchParams().get("noteId") || "";
 
   const [isPending, startTransition] = useTransition();
@@ -56,9 +55,8 @@ function DeleteNoteButton({ noteId, deleteNoteLocally }: Props) {
         <Button
           className="p-d absolute top-1/2 right-2 size-7 -translate-y-1/2 opacity-0 group-hover/item:opacity-100 [&_svg]:size-3"
           variant="ghost"
-          onClick={() => deleteNoteLocally(noteId)}
         >
-          <Trash2Icon />
+          <Trash2 />
         </Button>
       </AlertDialogTrigger>
       <AlertDialogContent>

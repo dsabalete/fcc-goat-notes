@@ -1,12 +1,11 @@
-import { ThemeProvider } from "@/providers/ThemeProvider";
-import { Toaster } from "@/components/ui/sonner";
-
 import type { Metadata } from "next";
-import "@/styles/globals.css";
-import Header from "@/components/Header";
+import { Toaster } from "@/components/ui/sonner";
 import { SidebarProvider } from "@/components/ui/sidebar";
-import AppSidebar from "@/components/AppSidebar";
+import { ThemeProvider } from "@/providers/ThemeProvider";
 import NoteProvider from "@/providers/NoteProvider";
+import Header from "@/components/Header";
+import AppSidebar from "@/components/AppSidebar";
+import "@/styles/globals.css";
 
 export const metadata: Metadata = {
   title: "GOAT Notes",
