@@ -1,38 +1,130 @@
+# GOAT Notes
+
 ![Vercel Deploy](https://deploy-badge.vercel.app/vercel/fcc-goat-notes)
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+GOAT Notes is a modern note-taking application built with [Next.js](https://nextjs.org), [Supabase](https://supabase.com), and [Prisma](https://www.prisma.io). It allows users to create, edit, delete, and search notes, with additional features like AI-powered insights and a responsive design.
+
+## Features
+
+- **User Authentication**: Sign up, log in, and log out securely using Supabase.
+- **Note Management**: Create, update, and delete notes with real-time updates.
+- **AI Assistance**: Ask AI questions about your notes using OpenAI's GPT model.
+- **Search Functionality**: Quickly search through your notes with fuzzy search.
+- **Dark Mode**: Toggle between light and dark themes.
+- **Responsive Design**: Optimized for both desktop and mobile devices.
+
+## Tech Stack
+
+- **Frontend**: [Next.js](https://nextjs.org), [React](https://reactjs.org), [Tailwind CSS](https://tailwindcss.com)
+- **Backend**: [Supabase](https://supabase.com), [Prisma](https://www.prisma.io)
+- **Database**: PostgreSQL
+- **AI Integration**: [OpenAI](https://openai.com)
+- **State Management**: React Context API
+- **UI Components**: Radix UI, Lucide Icons
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- Node.js 18+
+- PostgreSQL database
+- Supabase account with API keys
+- OpenAI API key
+
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/dsabalete/fcc-goat-notes.git
+   cd fcc-goat-notes
+   ```
+
+2. Install dependencies:
+
+   ```bash
+   npm install
+   # or
+   yarn install
+   # or
+   pnpm install
+   # or
+   bun install
+   ```
+
+3. Set up environment variables:
+   Create a `.env.local` file in the root directory and add the following:
+
+   ```env
+   SUPABASE_URL=<your-supabase-url>
+   SUPABASE_ANON_KEY=<your-supabase-anon-key>
+   OPENAI_API_KEY=<your-openai-api-key>
+   DATABASE_URL=<your-database-url>
+   NEXT_PUBLIC_BASE_URL=http://localhost:3000
+   ```
+
+4. Run database migrations:
+
+   ```bash
+   npm run migrate
+   ```
+
+5. Start the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+6. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## Project Structure
+
+```
+src/
+├── actions/           # Server actions for notes and user management
+├── app/               # Next.js app directory
+├── auth/              # Supabase authentication logic
+├── components/        # Reusable UI components
+├── db/                # Prisma schema and database client
+├── hooks/             # Custom React hooks
+├── lib/               # Utility functions and constants
+├── openai/            # OpenAI integration
+├── providers/         # Context providers for state management
+├── styles/            # Global and utility styles
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Scripts
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- `npm run dev`: Start the development server.
+- `npm run build`: Build the application for production.
+- `npm run start`: Start the production server.
+- `npm run migrate`: Run database migrations.
+- `npm run lint`: Run ESLint to check for code quality issues.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Deployment
+
+This project is optimized for deployment on [Vercel](https://vercel.com). Follow these steps:
+
+1. Connect your GitHub repository to Vercel.
+2. Add the environment variables in the Vercel dashboard.
+3. Deploy your application.
+
+For more details, refer to the [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying).
 
 ## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Supabase Documentation](https://supabase.com/docs)
+- [Prisma Documentation](https://www.prisma.io/docs)
+- [OpenAI Documentation](https://platform.openai.com/docs)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## License
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-## Deploy on Vercel
+## Acknowledgments
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [Vercel](https://vercel.com) for hosting.
+- [Supabase](https://supabase.com) for authentication and database management.
+- [OpenAI](https://openai.com) for AI-powered features.
+- [Radix UI](https://www.radix-ui.com) and [Lucide Icons](https://lucide.dev) for UI components.
