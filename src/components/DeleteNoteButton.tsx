@@ -1,4 +1,3 @@
-import { Note } from "@prisma/client";
 import { toast } from "sonner";
 import {
   AlertDialog,
