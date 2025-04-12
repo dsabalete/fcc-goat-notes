@@ -5,7 +5,8 @@ import { Note } from "@prisma/client";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { SidebarMenuButton } from "./ui/sidebar";
-import { Link } from "lucide-react";
+import Link from "next/link";
+import { format } from "date-fns";
 
 type Props = {
   note: Note;
@@ -16,7 +17,7 @@ function SelectNoteButton({ note }: Props) {
 
   const { noteText: selectedNoteText } = useNote();
   const [shouldUseGlobalNoteText, setShouldUseGlobalNoteText] = useState(false);
-  const [localNoteText, setLocalNoteText] = useState(note.text);
+  const [localNoteText, setLocalNoteText] = useState(note.text || "EMPTY NOTE");
 
   useEffect(() => {
     if (noteId === note.id) {
@@ -39,6 +40,12 @@ function SelectNoteButton({ note }: Props) {
     noteText = selectedNoteText || blankNoteText;
   }
 
+  // Format the date using date-fns for consistent output
+  const formattedDate = format(new Date(note.updatedAt), "yyyy-MM-dd");
+
+  console.log("Server-rendered note.text:", note.text);
+  console.log("Client-rendered noteText:", noteText);
+
   return (
     <SidebarMenuButton
       asChild
@@ -46,11 +53,9 @@ function SelectNoteButton({ note }: Props) {
     >
       <Link href={`/?noteId=${note.id}`} className="flex h-fit flex-col">
         <p className="w-full truncate overflow-hidden text-ellipsis whitespace-nowrap">
-          {noteText}
+          {noteText || "EMPTY NOTE"}
         </p>
-        <p className="text-muted-foreground text-xs">
-          {note.updatedAt.toLocaleDateString()}
-        </p>
+        <p className="text-muted-foreground text-xs">{formattedDate}</p>
       </Link>
     </SidebarMenuButton>
   );
